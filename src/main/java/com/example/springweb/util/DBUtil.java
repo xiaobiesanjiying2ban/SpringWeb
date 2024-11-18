@@ -87,8 +87,4 @@ public class DBUtil {
         }
         return rs;
     }
-
-    public static void main(String[] args) {
-        getConnection();
-    }
 }
