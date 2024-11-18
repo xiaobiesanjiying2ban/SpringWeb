@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DBUtil {
     private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/dianyingtongji?characterEncoding=UTF-8&allowPublicKeyRetrieval=true";
+    private static final String URL = "jdbc:mysql://localhost:3306/dianyingxitong?characterEncoding=UTF-8&allowPublicKeyRetrieval=true";
 //    链接问题可以修改以下两条属性
     private static final String USERNAME = "dahuang";
     private static final String PWD = "096303";
