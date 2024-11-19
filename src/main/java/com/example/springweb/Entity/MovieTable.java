@@ -3,7 +3,7 @@ package com.example.springweb.Entity;
 import java.sql.Time;
 import java.util.Objects;
 
-public class Movie {
+public class MovieTable {
     private int id; //电影编号
     private String name; //电影名称
     private String director; //导演名称
@@ -11,7 +11,7 @@ public class Movie {
     private String actor; //演员
 //    private String synopsis; //简介
 
-    public Movie(int id, String name, String director, Time releaseTime, String actor) {
+    public MovieTable(int id, String name, String director, Time releaseTime, String actor) {
         this.id = id;
         this.name = name;
         this.director = director;
@@ -20,7 +20,7 @@ public class Movie {
 //        this.synopsis = synopsis;
     }
 
-    public Movie() {
+    public MovieTable() {
     }
 
     public int getId() {
@@ -75,8 +75,8 @@ public class Movie {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Movie movie = (Movie) o;
-        return id == movie.id && Objects.equals(name, movie.name) && Objects.equals(director, movie.director) && Objects.equals(ReleaseTime, movie.ReleaseTime) && Objects.equals(actor, movie.actor);
+        MovieTable movieTable = (MovieTable) o;
+        return id == movieTable.id && Objects.equals(name, movieTable.name) && Objects.equals(director, movieTable.director) && Objects.equals(ReleaseTime, movieTable.ReleaseTime) && Objects.equals(actor, movieTable.actor);
     }
 
     @Override
