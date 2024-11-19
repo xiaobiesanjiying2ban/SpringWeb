@@ -7,17 +7,41 @@ public class MovieTable {
     private int id; //电影编号
     private String name; //电影名称
     private String director; //导演名称
-    private Time ReleaseTime; //上映时间
+    private Time release_time; //上映时间
     private String actor; //演员
 //    private String synopsis; //简介
 
-    public MovieTable(int id, String name, String director, Time releaseTime, String actor) {
+
+    @Override
+    public String toString() {
+        return "MovieTable{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", director='" + director + '\'' +
+                ", release_time=" + release_time +
+                ", actor='" + actor + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovieTable that = (MovieTable) o;
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(director, that.director) && Objects.equals(release_time, that.release_time) && Objects.equals(actor, that.actor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, director, release_time, actor);
+    }
+
+    public MovieTable(int id, String name, String director, Time release_time, String actor) {
         this.id = id;
         this.name = name;
         this.director = director;
-        ReleaseTime = releaseTime;
+        this.release_time = release_time;
         this.actor = actor;
-//        this.synopsis = synopsis;
     }
 
     public MovieTable() {
@@ -47,12 +71,12 @@ public class MovieTable {
         this.director = director;
     }
 
-    public Time getReleaseTime() {
-        return ReleaseTime;
+    public Time getRelease_time() {
+        return release_time;
     }
 
-    public void setReleaseTime(Time releaseTime) {
-        ReleaseTime = releaseTime;
+    public void setRelease_time(Time release_time) {
+        this.release_time = release_time;
     }
 
     public String getActor() {
@@ -61,37 +85,5 @@ public class MovieTable {
 
     public void setActor(String actor) {
         this.actor = actor;
-    }
-
-//    public String getSynopsis() {
-//        return synopsis;
-//    }
-
-//    public void setSynopsis(String synopsis) {
-//        this.synopsis = synopsis;
-//    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MovieTable movieTable = (MovieTable) o;
-        return id == movieTable.id && Objects.equals(name, movieTable.name) && Objects.equals(director, movieTable.director) && Objects.equals(ReleaseTime, movieTable.ReleaseTime) && Objects.equals(actor, movieTable.actor);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, director, ReleaseTime, actor);
-    }
-
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", director='" + director + '\'' +
-                ", ReleaseTime=" + ReleaseTime +
-                ", actor='" + actor + '\'' +
-                '}';
     }
 }
