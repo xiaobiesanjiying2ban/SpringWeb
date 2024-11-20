@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.springweb.Entity.AdminTable">
-    <select id="selectAllAdmin" resultType="AdminTable">
-        select * from admin_table;
+<mapper namespace="admin">
+    <select id="selectalladmin" resultType="com.example.springweb.Entity.AdminTable">
+        select * from admin_table
     </select>
 </mapper>

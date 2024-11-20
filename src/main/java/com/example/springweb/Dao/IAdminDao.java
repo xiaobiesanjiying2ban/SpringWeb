@@ -10,5 +10,5 @@ public interface IAdminDao {
 //    增删管理员账号
 //    更改管理员账号
 //    查询管理员账号
-    List<AdminTable> selectAllAdmin();
+    List<AdminTable> SelectAllAdmin();
 }
