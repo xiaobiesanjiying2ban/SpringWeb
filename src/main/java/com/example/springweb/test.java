@@ -20,7 +20,7 @@ public class test {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<User> list = sqlSession.selectList("admin.selectAllAdmin");
+        List<User> list = sqlSession.selectList("admin.selectalladmin");
         System.out.println(list);
         sqlSession.close();
     }
