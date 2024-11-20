@@ -1,20 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--类型别名 使用包扫描 -->
+    <typeAliases>
+        <package name="com.mybatis.Dao"/>
+    </typeAliases>
+    <!--环境配置-->
+    <!--environments：配置数据库连接环境信息，可以配置多个environment，通过default属性切换不同的environment-->
     <environments default="development">
         <environment id="development">
+            <!--事务管理方式 JDBC-->
             <transactionManager type="JDBC"/>
+            <!--数据库连接池-->
             <dataSource type="POOLED">
+                <!--链接信息-->
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/dianyingxitong?allowPublicKeyRetrieval=true"/>
-                <property name="username" value="dahuang"/>
-                <property name="password" value="096303"/>
+                <property name="url" value="jdbc:mysql:///dianyingxitong?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="adminMapper.xml"/>
+        <!--加载sql映射配置文件-->
+
+        <!--Mapper代理方式-->
+        <package name="com.example.springweb.Dao"/>
     </mappers>
 </configuration>
