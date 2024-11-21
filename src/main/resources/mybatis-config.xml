@@ -15,6 +15,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="adminMapper.xml"/>
+        <!--加载sql映射配置文件-->
+        <mapper resource="movieMapper.xml"/>
+        <!--Mapper代理方式-->
+        <package name="com.example.springweb.Dao"/>
     </mappers>
 </configuration>
