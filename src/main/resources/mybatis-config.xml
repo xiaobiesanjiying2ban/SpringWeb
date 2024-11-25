@@ -17,6 +17,7 @@
     <mappers>
         <!--加载sql映射配置文件-->
         <mapper resource="movieMapper.xml"/>
+        <mapper resource="roomMapper.xml"/>
         <!--Mapper代理方式-->
         <package name="com.example.springweb.Dao"/>
     </mappers>
