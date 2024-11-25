@@ -25,7 +25,7 @@ public class RoomService {
         return roomDao.updateRoom(roomTable);
     }
 //    查询
-    public List<RoomTable> getAllRoom(){
+    public List<RoomTable> findAllRoom(){
         return roomDao.findAllRoom();
     }
 }
