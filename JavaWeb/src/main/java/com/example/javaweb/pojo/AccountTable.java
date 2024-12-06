@@ -13,6 +13,6 @@ public class AccountTable {
     private String account;  //账号
     private String password;  //密码
     private String identity;  //身份
-    private String reName;  //真实姓名
-    private String reId;  //身份证
+    private String re_name;  //真实姓名
+    private String re_id;  //身份证
 }
