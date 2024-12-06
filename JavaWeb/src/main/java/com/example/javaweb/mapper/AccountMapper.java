@@ -13,6 +13,6 @@ public interface AccountMapper {
     @Select("select * from account_table")
     List<AccountTable> findAllAccounts();
     // 添加账号
-    @Insert("INSERT INTO account_table (username, account, password, re_name, re_id) VALUES (#{username}, #{account}, #{password}, #{re_name}, #{re_id})")
+    @Insert("insert into account_table (username, account, password, re_name, re_id) values (#{username}, #{account}, #{password}, #{re_name}, #{re_id})")
     int insertAccount(AccountTable account);
 }
