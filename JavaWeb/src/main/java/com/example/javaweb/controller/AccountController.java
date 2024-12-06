@@ -10,7 +10,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/accounts")
+@RequestMapping
 public class AccountController {
 
     private final AccountService accountService;
@@ -19,13 +19,13 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @GetMapping
+    @GetMapping("/FindAllAccount")
     public List<AccountTable> getAllAccounts() {
         log.info("获取所有账号");
         return accountService.getAllAccounts();
     }
 
-    @PostMapping
+    @PostMapping("/AddAccount")
     public boolean addAccount(@RequestBody AccountTable account) {
         log.info("请求添加账号");
         return accountService.addAccount(account);
