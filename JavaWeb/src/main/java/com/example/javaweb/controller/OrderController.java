@@ -30,12 +30,12 @@ public class OrderController {
     }
 
     // 查询订单
-    @GetMapping("/select")
-    public OrdersTable selectOrders(@RequestParam int orderNumber) {
-        log.info("查询订单，订单编号: {}", orderNumber);
-        OrdersTable ordersTable = ordersService.selectOrder(orderNumber);
-        if (ordersTable != null) {
-            return ordersTable;
+    @PostMapping("/select")
+    public OrdersTable selectOrders(@RequestBody OrdersTable ordersTable) {
+        log.info("查询订单，订单编号: {}", ordersTable.getOrderNumber());
+        OrdersTable order = ordersService.selectOrder(ordersTable.getOrderNumber());
+        if (order != null) {
+            return order;
         } else {
             return null;
         }

@@ -27,32 +27,32 @@ public class CommentController {
     }
 
     // 删除评论
-    @DeleteMapping("/delete/{id}")
-    public boolean deleteComment(@PathVariable int id) {
-        return commentService.deleteComment(new CommentTable(id, 0, "", 0, "", null));
+    @PostMapping("/delete")
+    public boolean deleteComment(@RequestBody CommentTable commentTable) {
+        return commentService.deleteComment(commentTable);
     }
 
     // 更改评论
-    @PutMapping("/update")
+    @PostMapping("/update")
     public boolean updateComment(@RequestBody CommentTable commentTable) {
         return commentService.updateComment(commentTable);
     }
 
     // 查看评论
-    @GetMapping("/all")
+    @PostMapping("/all")
     public List<CommentTable> selectComment() {
         return commentService.selectComment();
     }
 
-    // 根据电影名查看评论
-    @GetMapping("/movie/{movieId}")
-    public List<CommentTable> selectCommentByMovieId(@PathVariable int movieId) {
-        return commentService.selectCommentByMovieId(movieId);
+    // 根据电影ID查看评论
+    @PostMapping("/movie")
+    public List<CommentTable> selectCommentByMovieId(@RequestBody CommentTable commentTable) {
+        return commentService.selectCommentByMovieId(commentTable.getMovieId());
     }
 
-    // 根据用户查看评论
-    @GetMapping("/user/{userId}")
-    public List<CommentTable> selectCommentByUserName(@PathVariable String userId) {
-        return commentService.selectCommentByUserName(userId);
+    // 根据用户ID查看评论
+    @PostMapping("/user")
+    public List<CommentTable> selectCommentByUserName(@RequestBody CommentTable commentTable) {
+        return commentService.selectCommentByUserName(commentTable.getUserId());
     }
 }
