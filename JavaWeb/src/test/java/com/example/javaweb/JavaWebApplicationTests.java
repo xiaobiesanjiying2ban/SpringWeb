@@ -6,7 +6,6 @@ import com.example.javaweb.service.AccountService;
 import com.example.javaweb.service.OrdersService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
@@ -37,10 +36,10 @@ class JavaWebApplicationTests {
 	@Test
 	void addAccount(){
 		AccountTable account = new AccountTable();
-		account.setUsername("李四");
-		account.setAccount("mislisi");
+		account.setUsername("王五");
+		account.setAccount("miswangwu");
 		account.setPassword("123456");
-		account.setRe_name("李四");
+		account.setRe_name("王五");
 		account.setRe_id("39482958271843728");
 
 		boolean isAdded = accountService.addAccount(account);
@@ -54,7 +53,7 @@ class JavaWebApplicationTests {
 	void addOrders(){
 		OrdersTable ordersTable = new OrdersTable();
 		ordersTable.setMovie("战狼2");
-		ordersTable.setOrderNumber(20248806);
+		ordersTable.setOrderNumber(20248807);
 		ordersTable.setPersonalInfo("王五");
 		ordersTable.setCinemaHallInfo(1);
 
@@ -69,4 +68,6 @@ class JavaWebApplicationTests {
 		OrdersTable ordersTable = ordersService.selectOrder(num);
 		System.out.println(ordersTable);
 	}
+
+
 }

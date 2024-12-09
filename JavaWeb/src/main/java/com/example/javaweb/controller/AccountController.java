@@ -29,8 +29,8 @@ public class AccountController {
 
     // 添加账号
     @PostMapping("/add")
-    public boolean addAccount(@RequestBody AccountTable account) {
-        log.info("请求添加账号");
-        return accountService.addAccount(account);
+    public boolean addAccount(@RequestBody AccountTable accountTable) {
+        log.info("请求添加账号: {}", accountTable);
+        return accountService.addAccount(accountTable);
     }
 }
