@@ -14,7 +14,8 @@ public interface CommentMapper {
     @Delete("delete from comment where id = #{id}")
     int deleteComment(int id);
     // 更改评论
-    @Update("update comment set MovieId = #{MovieId}, UserId = #{UserId}, Scores = #{Scores}, Content = #{Content} where id = #{id}")
+    @Update("update comment set MovieId = #{MovieId}, UserId = #{UserId}, Scores = #{Scores}, Content = #{Content} " +
+            "where id = #{id}")
     int updateComment(CommentTable comment);
     // 查看评论
     @Select("select * from comment")
