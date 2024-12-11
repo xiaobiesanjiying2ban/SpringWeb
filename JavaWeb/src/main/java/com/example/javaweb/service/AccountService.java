@@ -10,5 +10,5 @@ public interface AccountService {
     // 所有账号
     List<AccountTable> getAllAccounts();
     // 添加账号
-    boolean addAccount(AccountTable account);
+    int addAccount(AccountTable account);
 }

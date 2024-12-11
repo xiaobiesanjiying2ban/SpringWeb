@@ -12,14 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/comment")
 public class CommentController {
-
-    private final CommentService commentService;
-
     @Autowired
-    public CommentController(CommentService commentService) {
-        this.commentService = commentService;
-    }
+    private  CommentService commentService;
 
+    
     // 添加评论
     @PostMapping("/add")
     public boolean addComment(@RequestBody CommentTable commentTable) {

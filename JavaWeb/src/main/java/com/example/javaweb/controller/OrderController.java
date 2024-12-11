@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
-    private final OrdersService ordersService;
-
     @Autowired
-    public OrderController(OrdersService ordersService) {
-        this.ordersService = ordersService;
-    }
+    private  OrdersService ordersService;
 
+    
     // 添加订单
     @PostMapping("/add")
     public String addOrders(@RequestBody OrdersTable ordersTable) {

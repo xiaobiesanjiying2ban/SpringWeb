@@ -10,11 +10,9 @@ import java.util.List;
 
 @Service
 public class AccountServiceImpl implements AccountService {
-    private final AccountMapper accountMapper;
     @Autowired
-    public AccountServiceImpl(AccountMapper accountMapper) {
-        this.accountMapper = accountMapper;
-    }
+    private  AccountMapper accountMapper;
+    
 
     // 所有账号
     @Override
@@ -24,8 +22,7 @@ public class AccountServiceImpl implements AccountService {
 
     // 添加账号
     @Override
-    public boolean addAccount(AccountTable account){
-        int result = accountMapper.insertAccount(account);
-        return result > 0;
+    public int addAccount(AccountTable account){
+	    return accountMapper.insertAccount ( account );
     }
 }
