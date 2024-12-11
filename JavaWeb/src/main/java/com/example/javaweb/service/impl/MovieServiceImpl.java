@@ -10,13 +10,9 @@ import java.util.List;
 
 @Service
 public class MovieServiceImpl implements MovieService {
-
-    private final MovieMapper movieMapper;
     @Autowired
-    public MovieServiceImpl(MovieMapper movieMapper) {
-        this.movieMapper = movieMapper;
-    }
-
+    private MovieMapper movieMapper;
+    
     // 增加电影
     @Override
     public boolean addMovie(MovieTable movieTable) {

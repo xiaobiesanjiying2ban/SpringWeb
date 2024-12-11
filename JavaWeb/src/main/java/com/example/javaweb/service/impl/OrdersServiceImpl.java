@@ -8,13 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {
-    private final OrdersMapper ordersMapper;
-
     @Autowired
-    public OrdersServiceImpl(OrdersMapper ordersMapper) {
-        this.ordersMapper = ordersMapper;
-    }
-
+    private  OrdersMapper ordersMapper;
+    
     // 添加订单
     @Override
     public boolean addOrders(OrdersTable ordersTable) {

@@ -16,14 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/cinemahalls")
 public class CinemahallsController {
-
-    private final CinemahallsService cinemahallsService;
-
     @Autowired
-    public CinemahallsController(CinemahallsService cinemahallsService) {
-        this.cinemahallsService = cinemahallsService;
-    }
-
+    private  CinemahallsService cinemahallsService;
+    
     // 查询未使用影厅
     @PostMapping("/no-use")
     public List<CinemahallsTable> selectNoCinemahalls() {

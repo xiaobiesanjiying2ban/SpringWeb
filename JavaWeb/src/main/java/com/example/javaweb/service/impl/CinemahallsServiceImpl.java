@@ -10,13 +10,9 @@ import java.util.List;
 
 @Service
 public class CinemahallsServiceImpl implements CinemahallsService {
-
-    private final CinemahallsMapper cinemahallsMapper;
-
     @Autowired
-    public CinemahallsServiceImpl(CinemahallsMapper cinemahallsMapper) {
-        this.cinemahallsMapper = cinemahallsMapper;
-    }
+    private  CinemahallsMapper cinemahallsMapper;
+    
     // 增加影厅
     @Override
     public boolean addChinemahalls(CinemahallsTable cinemahallsTable) {

@@ -12,14 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
-
-    private final MovieService movieService;
-
     @Autowired
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
-    }
-
+    private  MovieService movieService;
+    
     // 增加电影
     @PostMapping("/add")
     public boolean addMovie(@RequestBody MovieTable movieTable) {

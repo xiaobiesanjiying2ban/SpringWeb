@@ -1,6 +1,7 @@
 package com.example.javaweb.controller;
 
 import com.example.javaweb.pojo.AccountTable;
+import com.example.javaweb.pojo.Result;
 import com.example.javaweb.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,25 +13,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/account")
 public class AccountController {
-
-    private final AccountService accountService;
-
     @Autowired
-    public AccountController(AccountService accountService) {
-        this.accountService = accountService;
-    }
-
+    private  AccountService accountService;
+    
     // 查询所有账号
     @PostMapping("/all")
-    public List<AccountTable> getAllAccounts() {
-        log.info("获取所有账号");
-        return accountService.getAllAccounts();
+    public Result getAllAccounts() {
+        return Result.success ( accountService.getAllAccounts () );
     }
 
     // 添加账号
     @PostMapping("/add")
-    public boolean addAccount(@RequestBody AccountTable accountTable) {
-        log.info("请求添加账号: {}", accountTable);
-        return accountService.addAccount(accountTable);
+    public Result addAccount(String username, String account,String password ,String identity,String re_name,String re_id) {
+        int i = accountService.addAccount ( new AccountTable ( 1 , username , account , password , identity , re_name , re_id ) );
+        return Result.success ( "成功添加"+i+ "条用户数据");
     }
 }

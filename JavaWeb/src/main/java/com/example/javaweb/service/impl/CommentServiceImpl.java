@@ -10,13 +10,10 @@ import java.util.List;
 
 @Service
 public class CommentServiceImpl implements CommentService {
-
-    private final CommentMapper commentMapper;
-
     @Autowired
-    public CommentServiceImpl(CommentMapper commentMapper) {
-        this.commentMapper = commentMapper;
-    }
+    private  CommentMapper commentMapper;
+
+    
 
     // 添加评论
     @Override
