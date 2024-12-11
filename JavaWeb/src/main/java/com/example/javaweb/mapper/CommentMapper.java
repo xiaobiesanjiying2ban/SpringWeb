@@ -8,22 +8,21 @@ import java.util.List;
 @Mapper
 public interface CommentMapper {
     // 添加评论
-    @Insert("insert into comment(MovieId,UserId,Scores,Content) values (#{MovieId},#{UserId},#{Scores},#{Content})")
+    @Insert("INSERT INTO comment (MovieId, UserId, Scores, Content, CommentDate) VALUES (#{MovieId}, #{UserId}, #{Scores}, #{Content}, #{CommentDate})")
     int insertComment(CommentTable comment);
     // 删除评论
-    @Delete("delete from comment where id = #{id}")
+    @Delete("DELETE FROM comment WHERE id = #{id}")
     int deleteComment(int id);
     // 更改评论
-    @Update("update comment set MovieId = #{MovieId}, UserId = #{UserId}, Scores = #{Scores}, Content = #{Content} " +
-            "where id = #{id}")
+    @Update("UPDATE comment SET MovieId = #{MovieId}, UserId = #{UserId}, Scores = #{Scores}, Content = #{Content}, CommentDate = #{CommentDate} WHERE id = #{id}")
     int updateComment(CommentTable comment);
     // 查看评论
-    @Select("select * from comment")
+    @Select("SELECT * FROM comment")
     List<CommentTable> selectAllComment();
     // 根据电影名查看评论
-    @Select("select * from comment where MovieId = #{MovieId}")
+    @Select("SELECT * FROM comment WHERE MovieId = #{MovieId}")
     List<CommentTable> selectCommentsByMovieId(int movieId);
     // 根据用户查看评论
-    @Select("select * from comment where UserId = #{UserId}")
-    List<CommentTable> selectCommentsByUserId(String userId);
+    @Select("SELECT * FROM comment WHERE UserId = #{UserId}")
+    List<CommentTable> selectCommentsByUserId(String UserId);
 }

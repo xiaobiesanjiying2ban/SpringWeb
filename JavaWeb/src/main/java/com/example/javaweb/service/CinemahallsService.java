@@ -14,6 +14,8 @@ public interface CinemahallsService {
     List<CinemahallsTable> selectNoCinemahalls();
     // 查询已使用影厅
     List<CinemahallsTable> selectYesCinemahalls();
+    // 查询所有影厅
+    List<CinemahallsTable> selectAllCinemahalls();
     // 更新影厅状态
     boolean updateCinemahall(int id,int isInUse);
 }

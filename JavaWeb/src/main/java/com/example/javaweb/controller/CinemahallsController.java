@@ -1,14 +1,11 @@
 package com.example.javaweb.controller;
 
 import com.example.javaweb.pojo.CinemahallsTable;
+import com.example.javaweb.pojo.Result;
 import com.example.javaweb.service.CinemahallsService;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,24 +13,46 @@ import java.util.List;
 @RestController
 @RequestMapping("/cinemahalls")
 public class CinemahallsController {
+    CinemahallsTable cinemahallsTable = new CinemahallsTable();
+
     @Autowired
     private  CinemahallsService cinemahallsService;
-    
+
+    // 增加影厅
+    @PostMapping("/add")
+    public Result insertCinemahalls(String hall_name , String is_in_use) {
+        cinemahallsTable.setHall_name(hall_name);
+        cinemahallsTable.setIs_in_use(is_in_use);
+        boolean success = cinemahallsService.addChinemahalls(cinemahallsTable);
+        return success ? Result.success("增加成功"):Result.error("增加失败");
+    }
     // 查询未使用影厅
     @PostMapping("/no-use")
-    public List<CinemahallsTable> selectNoCinemahalls() {
-        return cinemahallsService.selectNoCinemahalls();
+    public Result selectNoCinemahalls() {
+        List<CinemahallsTable> cinemahallsTables = cinemahallsService.selectNoCinemahalls();
+        return Result.success(cinemahallsTables);
     }
 
     // 查询已使用影厅
     @PostMapping("/yes-use")
-    public List<CinemahallsTable> selectYesCinemahalls() {
-        return cinemahallsService.selectYesCinemahalls();
+    public Result selectYesCinemahalls() {
+        List<CinemahallsTable> cinemahallsTables = cinemahallsService.selectYesCinemahalls();
+        return Result.success(cinemahallsTables);
+    }
+
+    // 查询所有影厅
+    @PostMapping("/all-use")
+    public Result selectAllCinemahalls() {
+        List<CinemahallsTable> cinemahallsTables = cinemahallsService.selectAllCinemahalls();
+        return Result.success(cinemahallsTables);
     }
 
     // 更新影厅状态
     @PostMapping("/update")
-    public boolean updateCinemahallStatus(@RequestBody CinemahallsTable cinemahallsTable) {
-        return cinemahallsService.updateCinemahall(cinemahallsTable.getId(), Integer.parseInt(cinemahallsTable.getIs_in_use()));
+    public Result updateCinemahallStatus(String hall_name , String is_in_use) {
+        cinemahallsTable.setHall_name(hall_name);
+        cinemahallsTable.setIs_in_use(is_in_use);
+        boolean success = cinemahallsService.updateCinemahall(cinemahallsTable.getId(),Integer.parseInt(hall_name));
+        return success ? Result.success("更改成功") : Result.error("更改失败");
     }
 }

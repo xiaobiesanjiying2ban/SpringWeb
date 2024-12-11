@@ -28,8 +28,17 @@ public class CinemahallsServiceImpl implements CinemahallsService {
     public List<CinemahallsTable> selectYesCinemahalls(){
         return cinemahallsMapper.selectYesCinemahalls();
     }
+    // 查询所有影厅
+    @Override
+    public List<CinemahallsTable> selectAllCinemahalls(){
+        return cinemahallsMapper.selectAllCinemahalls();
+    }
     // 更新影厅状态
-    public boolean updateCinemahall(int id, int isInUse){
+    @Override
+    public boolean updateCinemahall(int id, int isInUse) {
+        CinemahallsTable cinemahallsTable = new CinemahallsTable();
+        cinemahallsTable.setId(id);
+        cinemahallsTable.setIs_in_use(String.valueOf(isInUse));
         return cinemahallsMapper.updateCinemahallStatus(id, isInUse) > 0;
     }
 }

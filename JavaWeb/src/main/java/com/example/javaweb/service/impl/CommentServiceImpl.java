@@ -11,9 +11,7 @@ import java.util.List;
 @Service
 public class CommentServiceImpl implements CommentService {
     @Autowired
-    private  CommentMapper commentMapper;
-
-    
+    private CommentMapper commentMapper;
 
     // 添加评论
     @Override
@@ -24,8 +22,8 @@ public class CommentServiceImpl implements CommentService {
 
     // 删除评论
     @Override
-    public boolean deleteComment(CommentTable commentTable) {
-        int result = commentMapper.deleteComment(commentTable.getId());
+    public boolean deleteComment(int id) {
+        int result = commentMapper.deleteComment(id);
         return result > 0;
     }
 
@@ -38,19 +36,19 @@ public class CommentServiceImpl implements CommentService {
 
     // 查看评论
     @Override
-    public List<CommentTable> selectComment(){
+    public List<CommentTable> selectComment() {
         return commentMapper.selectAllComment();
     }
 
     // 根据电影名查看评论
     @Override
-    public List<CommentTable> selectCommentByMovieId(int movieId){
+    public List<CommentTable> selectCommentByMovieId(int movieId) {
         return commentMapper.selectCommentsByMovieId(movieId);
     }
 
     // 根据用户查看评论
     @Override
-    public List<CommentTable> selectCommentByUserName(String userName){
-        return commentMapper.selectCommentsByUserId(userName);
+    public List<CommentTable> selectCommentByUserName(String UserId) {
+        return commentMapper.selectCommentsByUserId(UserId);
     }
 }
