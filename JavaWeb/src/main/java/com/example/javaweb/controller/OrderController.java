@@ -20,11 +20,11 @@ public class OrderController {
     // 添加订单
     @PostMapping("/add")
     public Result addOrders(String Movie, String PersonalInfo, Integer CinemaHallInfo, LocalDateTime MovieTime) {
-        LocalDateTime now = LocalDateTime.now();
         OrdersTable ordersTable = new OrdersTable();
         ordersTable.setMovie(Movie);
         Random random = new Random();
         ordersTable.setOrderNumber(10000000 + random.nextInt(9000000));
+        LocalDateTime now = LocalDateTime.now();
         ordersTable.setOrderTime(now);
         ordersTable.setPersonalInfo(PersonalInfo);
         ordersTable.setCinemaHallInfo(CinemaHallInfo);

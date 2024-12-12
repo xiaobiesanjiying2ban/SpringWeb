@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,5 +20,5 @@ public class MovieTable {
     private String ReleaseDate;  // 上映时间
     private String Brief;  // 简介
     private int Status;  // 电影状态 （放映中或者未放映）
-    private String AddDate;  // 添加时间
+    private LocalDateTime AddDate;  // 添加时间
 }

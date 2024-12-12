@@ -32,6 +32,7 @@ public class CommentController {
         return add ? Result.success("评论添加成功") : Result.error("评论添加失败");
     }
 
+    // 删除评论
     @PostMapping("/delete")
     public Result deleteComment(@RequestParam Integer id) {
         boolean success = commentService.deleteComment(id);

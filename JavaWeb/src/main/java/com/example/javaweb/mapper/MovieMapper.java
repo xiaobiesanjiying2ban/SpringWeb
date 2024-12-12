@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface MovieMapper {
     // 增加电影
-    @Insert("insert into movie(Image, MovieName, MovieAddress, Director, Cast, MovieLength, ReleaseDate, Brief, Status) " +
-            "values (#{Image}, #{MovieName}, #{MovieAddress}, #{Director}, #{Cast}, #{MovieLength}, #{ReleaseDate}, #{Brief}, #{Status})")
+    @Insert("insert into movie(Image, MovieName, MovieAddress, Director, Cast, MovieLength, ReleaseDate, Brief, Status, AddDate) " +
+            "values (#{Image}, #{MovieName}, #{MovieAddress}, #{Director}, #{Cast}, #{MovieLength}, #{ReleaseDate}, #{Brief}, #{Status}, #{AddDate})")
     int insertMovie(MovieTable movieTable);
 
     // 删除电影
@@ -27,6 +27,6 @@ public interface MovieMapper {
     List<MovieTable> selectAllMovie();
 
     // 更根名称查找电影
-    @Select("select * from movie where MovieName like concat('%', #{MovieName}, '%')")
+    @Select("select * from movie where MovieName = #{MovieName}")
     List<MovieTable> selectMovieByMovieName(String movieName);
 }

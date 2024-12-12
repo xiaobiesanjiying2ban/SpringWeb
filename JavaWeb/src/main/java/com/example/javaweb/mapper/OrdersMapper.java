@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface OrdersMapper {
     //生成订单
-    @Insert("insert into orders(Movie,OrderNumber,PersonalInfo,CinemaHallInfo,MovieTime) values (#{Movie},#{OrderNumber},#{PersonalInfo},#{CinemaHallInfo},#{MovieTime})")
+    @Insert("insert into orders(Movie,OrderNumber,OrderTime,PersonalInfo,CinemaHallInfo,MovieTime) values (#{Movie},#{OrderNumber},#{OrderTime},#{PersonalInfo},#{CinemaHallInfo},#{MovieTime})")
     int insertOrders(OrdersTable ordersTable);
     //查找订单
     @Select("SELECT * FROM orders WHERE OrderNumber = #{OrderNumber}")
