@@ -20,6 +20,6 @@ public interface CinemahallsMapper {
     @Select("select * from cinema_halls")
     List<CinemahallsTable> selectAllCinemahalls();
     // 更新影厅状态
-    @Update("UPDATE cinema_halls SET is_in_use = #{is_in_use} WHERE id = #{id}")
-    int updateCinemahallStatus(@Param("id") int id, @Param("is_in_use") int isInUse);
+    @Update("update cinema_halls set hall_name=#{hall_name}, is_in_use=#{is_in_use} where id=#{id}")
+    int updateCinemahall(CinemahallsTable cinemahallsTable);
 }

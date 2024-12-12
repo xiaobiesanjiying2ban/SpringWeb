@@ -16,6 +16,6 @@ public interface CinemahallsService {
     List<CinemahallsTable> selectYesCinemahalls();
     // 查询所有影厅
     List<CinemahallsTable> selectAllCinemahalls();
-    // 更新影厅状态
-    boolean updateCinemahall(int id,int isInUse);
+    // 更新影厅信息
+    boolean updateCinemahall(CinemahallsTable cinemahallsTable);
 }

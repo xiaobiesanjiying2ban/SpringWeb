@@ -35,10 +35,7 @@ public class CinemahallsServiceImpl implements CinemahallsService {
     }
     // 更新影厅状态
     @Override
-    public boolean updateCinemahall(int id, int isInUse) {
-        CinemahallsTable cinemahallsTable = new CinemahallsTable();
-        cinemahallsTable.setId(id);
-        cinemahallsTable.setIs_in_use(String.valueOf(isInUse));
-        return cinemahallsMapper.updateCinemahallStatus(id, isInUse) > 0;
+    public boolean updateCinemahall(CinemahallsTable cinemahallsTable) {
+        return cinemahallsMapper.updateCinemahall(cinemahallsTable) > 0;
     }
 }

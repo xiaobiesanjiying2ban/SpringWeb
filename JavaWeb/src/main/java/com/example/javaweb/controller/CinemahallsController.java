@@ -47,12 +47,17 @@ public class CinemahallsController {
         return Result.success(cinemahallsTables);
     }
 
-    // 更新影厅状态
+    // 更新影厅信息
     @PostMapping("/update")
-    public Result updateCinemahallStatus(String hall_name , String is_in_use) {
+    public Result updateCinemahall(@RequestParam int id,
+                                   @RequestParam String hall_name,
+                                   @RequestParam String is_in_use
+                                   ) {
+        CinemahallsTable cinemahallsTable = new CinemahallsTable();
+        cinemahallsTable.setId(id);
         cinemahallsTable.setHall_name(hall_name);
         cinemahallsTable.setIs_in_use(is_in_use);
-        boolean success = cinemahallsService.updateCinemahall(cinemahallsTable.getId(),Integer.parseInt(hall_name));
-        return success ? Result.success("更改成功") : Result.error("更改失败");
+        boolean success = cinemahallsService.updateCinemahall(cinemahallsTable);
+        return success ? Result.success("更新成功") : Result.error("更新失败");
     }
 }

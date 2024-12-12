@@ -41,9 +41,17 @@ public class CommentController {
 
     // 更新评论
     @PostMapping("/update")
-    public Result updateComment(@RequestBody CommentTable commentTable) {
-        boolean success = commentService.updateComment(commentTable);
-        return success ? Result.success("评论更新成功") : Result.error("评论更新失败");
+    public Result updateComment(Integer id, Integer MovieId, String UserId, Integer Scores, String Content) {
+        LocalDateTime now = LocalDateTime.now();
+        CommentTable commentTable = new CommentTable();
+        commentTable.setId(id);
+        commentTable.setMovieId(MovieId);
+        commentTable.setUserId(UserId);
+        commentTable.setScores(Scores);
+        commentTable.setContent(Content);
+        commentTable.setCommentDate(now);
+        boolean update = commentService.updateComment(commentTable);
+        return update ? Result.success("更新成功") : Result.error("更新失败");
     }
 
     // 查看评论
