@@ -17,4 +17,6 @@ public interface MovieService {
     List<MovieTable> getAllMovies();
     // 更根名称查找电影
     List<MovieTable> findMovies(String movieName);
+	
+
 }

@@ -13,6 +13,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/movie")
+@CrossOrigin
 public class MovieController {
     @Autowired
     private  MovieService movieService;
@@ -86,4 +87,8 @@ public class MovieController {
             return Result.error("未找到电影");
         }
     }
+    
+    
+    
+
 }
