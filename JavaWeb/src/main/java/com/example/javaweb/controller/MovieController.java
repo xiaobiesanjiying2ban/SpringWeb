@@ -25,8 +25,7 @@ public class MovieController {
                            @RequestParam String Cast, @RequestParam Integer MovieLength,
                            @RequestParam String ReleaseDate, @RequestParam String Brief,
                            @RequestParam Integer Status) {
-        MovieTable movieTable = createMovieTable(1,Image, MovieName, MovieAddress, Director, Cast,
-                MovieLength, ReleaseDate, Brief, Status);
+        MovieTable movieTable = createMovieTable(1,Image, MovieName, MovieAddress, Director, Cast, MovieLength, ReleaseDate, Brief, Status);
         boolean add = movieService.addMovie(movieTable);
         return add ? Result.success("添加成功") : Result.error("添加失败");
     }
@@ -45,8 +44,7 @@ public class MovieController {
                               @RequestParam String Cast, @RequestParam Integer MovieLength,
                               @RequestParam String ReleaseDate, @RequestParam String Brief,
                               @RequestParam Integer Status) {
-        MovieTable movieTable = createMovieTable(MovieId, Image, MovieName, MovieAddress, Director, Cast,
-                MovieLength, ReleaseDate, Brief, Status);
+        MovieTable movieTable = createMovieTable(MovieId, Image, MovieName, MovieAddress, Director, Cast, MovieLength, ReleaseDate, Brief, Status);
         boolean update = movieService.updateMovie(movieTable);
         return update ? Result.success("更新成功") : Result.error("更新失败");
     }
