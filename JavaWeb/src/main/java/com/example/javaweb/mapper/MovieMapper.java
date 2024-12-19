@@ -29,5 +29,7 @@ public interface MovieMapper {
     // 更根名称查找电影
     @Select("select * from movie where MovieName = #{MovieName}")
     List<MovieTable> selectMovieByMovieName(String movieName);
-
+	
+    @Select ( "select * from movie where MovieId = #{movieId}")
+	MovieTable getMovieInfo ( Integer movieId );
 }

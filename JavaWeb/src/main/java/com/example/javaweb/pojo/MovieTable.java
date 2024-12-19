@@ -14,6 +14,7 @@ public class MovieTable {
     private String Image;  // 图片
     private String MovieName;  // 电影名
     private String MovieAddress;  // 地区
+    private String LanguageVersions;
     private String Director;  // 导演
     private String Cast;  // 演员表
     private int MovieLength;  // 片长

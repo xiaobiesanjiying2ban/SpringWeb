@@ -38,7 +38,11 @@ public class MovieServiceImpl implements MovieService {
     public List<MovieTable> findMovies(String movieName){
         return movieMapper.selectMovieByMovieName(movieName);
     }
-    
-
-    
+	
+	@Override
+	public MovieTable getMovieInfo ( Integer movieId ) {
+		return movieMapper.getMovieInfo(movieId);
+	}
+	
+	
 }

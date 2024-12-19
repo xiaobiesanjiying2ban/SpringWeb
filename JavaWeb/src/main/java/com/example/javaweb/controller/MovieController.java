@@ -85,4 +85,14 @@ public class MovieController {
             return Result.error("未找到电影");
         }
     }
+    
+//    根据所给的图片id来查找相应的电影信息
+    @PostMapping("/movieInfo")
+    public Result getMovieInfo(@RequestParam Integer movieId) {
+        MovieTable movieInfo = movieService.getMovieInfo(movieId);
+        return Result.success(movieInfo);
+    }
+    
+    
+
 }
