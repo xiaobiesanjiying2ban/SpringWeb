@@ -85,8 +85,4 @@ public class MovieController {
             return Result.error("未找到电影");
         }
     }
-    
-    
-    
-
 }
