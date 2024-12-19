@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JavaWebApplication {
 	public static void main(String[] args) {
+		// 你看个锤子
 		SpringApplication.run(JavaWebApplication.class, args);
 	}
 }
